@@ -10,12 +10,12 @@ public class Tablero {
         this.nivel = n;
     }
 
-    public void añadirCasilla (Casilla n) {
+    public void añadirCasilla(Casilla n) {
         Casilla aux = head;
-        if(head == null) {
+        if (head == null) {
             head = n;
-        }else {
-            while(aux.siguiente != null) {
+        } else {
+            while (aux.siguiente != null) {
                 aux = aux.siguiente;
             }
             aux.siguiente = n;
@@ -34,6 +34,21 @@ public class Tablero {
         return head;
     }
 
-   
-  
+    public int lanzarDados(int max) {
+
+        int dado = (int) (Math.random() * max) + 1;
+
+        return dado;
+    }
+
+    public boolean verificarGanador(Jugadores jugador) {
+        boolean res = false;
+
+        if (jugador.getPosition().siguiente == null) {
+            res = true;
+        }
+
+        return res;
+    }
+
 }
